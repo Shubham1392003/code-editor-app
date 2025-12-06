@@ -1,10 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Code Editor App — Next.js
 
-## Getting Started
+This is a simple web-based code editor built with **Next.js**, featuring:
 
-First, run the development server:
+- A JavaScript code editor (Monaco Editor)
+- A console section to run and display output
+- A local auto-fix system that cleans and corrects code
+- A help panel that shows predefined tips based on keywords
+
+This project was created as part of an internship assignment.
+
+---
+
+## 🚀 Getting Started
+
+First, install dependencies:
 
 ```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+# or
+bun install
+Then run the development server:
+
+bash
+
 npm run dev
 # or
 yarn dev
@@ -12,25 +34,70 @@ yarn dev
 pnpm dev
 # or
 bun dev
+Open http://localhost:3000 in your browser to view the app.
 ```
+### 📂 Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+ app/
+  page.js              → main UI (editor + buttons + console)
+  components/
+    CodeEditor.js      → Monaco code editor
+    ConsoleOutput.js   → Output / error display
+    HelpPanel.js       → Help popup with keyword-based tips
+  lib/
+    runCode.js         → Safe JS execution sandbox
+    autoFix.js         → Local rule-based code auto-fix system
+    helpData.js        → Predefined help responses
+public/
+  favicon.ico
+```
+## README.md
+✨ Auto-Fix Rules
+When the Auto Fix button is clicked, the app runs a custom rule-based formatter that:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Adds missing semicolons
+Fixes indentation
+Removes extra spaces
+Corrects unbalanced brackets (), {}, []
+Fixes simple JavaScript mistakes (e.g., consol.log → console.log)
+Adds let for undeclared variables
+Converts var → let
+Normalizes spacing around operators
+Fixes arrow function shorthand
+Cleans double semicolons
+Repairs broken object and array formatting
+Ensures parentheses and braces are balanced
+This system runs entirely locally — no AI or API required.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 💬 Help Panel
+Clicking the Help button opens a small side panel.
+Users can type questions such as:
+"semicolon"
+"brackets"
+"how to run code"
+"common errors"
+The panel matches keywords and displays predefined tips to assist beginners.
 
-## Learn More
+### ▶️ Running Code
+The Run button executes the code inside a safe sandbox environment using a restricted JS evaluator. Output and errors appear in the bottom console section.
 
-To learn more about Next.js, take a look at the following resources:
+📦 Deliverables Included
+Full Next.js project with clean state management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Local auto-fix engine with readable code
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Keyword-based help panel
 
-## Deploy on Vercel
+📚 Learn More
+To learn more about the technologies used:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js Documentation
+Monaco Editor
+JavaScript Basics
+🛠 Deployment
+You can deploy this project easily using Vercel, the creators of Next.js:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://vercel.com/new
+
+Follow the official Next.js deployment guide for details.
