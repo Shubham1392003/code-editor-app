@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
-    "next": "16.0.7",
+    "next": "16.0.10",
     "prettier": "^3.7.4",
     "react": "19.2.0",
     "react-dom": "19.2.0"
